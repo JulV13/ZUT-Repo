@@ -1,2 +1,2 @@
 # ZUT-Repo
-ZUT Projects
+My solutions to ZUT projects.
