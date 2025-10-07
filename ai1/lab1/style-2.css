@@ -1,36 +1,154 @@
 body {
-    font-family: "Tahoma", sans-serif;
-    background-color: red;
+    font-family: "Times New Roman" sans-serif;
+    color: black;
+    background-image: linear-gradient(to right, lightgreen, lightblue);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;   
 }
 
 header {
-    background-color: blue;
-    color: white;
-    font-size: 4em;
+    border: 5px dotted yellow;
+    border-radius: 25%;
+    width: 90%;
+    background-image: none;
+    background-color: red;
+    color: lightgreen;
+    text-shadow: 2px 2px 1px black;
+    font-size: 3.5em;
+    font-style: normal;
+    text-align: left;
+    padding: 15px;
+    margin-bottom: -10px;
 }
 
-h1 {  
-    font-style: italic;
-    text-align: left;
+h1 {
+    font-size: 1em;
+    text-align: left;  
+    font-style: normal; 
+    text-decoration: none;
 }
 
 h2 {
-    font-weight: bold;
+    color: green;
+    font-size: 3.5em;
     text-align: left;
+    font-style: normal;
+    text-decoration: underline;
+}
+
+h2:hover{
+    color: red;
+    transition: 0.5s;
 }
 
 h3 {
+    font-size: 2em;
+    text-align: right;
+    font-style: normal;
     text-decoration: underline;
-    text-align: left;
 }
 
 p {
-    font-size: 1.5em;
-    text-align: left;
+    font-size: 1.25em;
+    margin: 0 auto;
+    text-align: right;
+    font-style: normal;
+    text-decoration: none;
+}
+
+div.lista{
+    text-align: right;
+}
+
+ul {
+    font-size: 1.25em;
+    list-style-type: disc;
+    display: inline-block;
+    text-align: right;
 }
 
 footer {
-    background-color: blue;
-    color: white;
-    border-radius: 5px;
+    background-color: red;
+    color: green;
+    border-radius: 25%;
+    padding: 10px;
+    text-align: left;
+}
+
+a {
+    color: green;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.nawigacja{
+    border: 5px dotted yellow;
+    border-radius: 25%;
+    text-align: right;
+    width: 90%;
+    text-shadow: none;
+    background-image: none;
+    background-color: violet;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.nawigacja a{
+    font-style: italic;
+    color: black;
+    margin: 0 5px;
+    text-align: right;
+}
+
+.nawigacja a:hover{
+    text-shadow: 2px 2px black;
+    color: orange;
+    transition: 0.7s;
+}   
+
+.gallery{
+    display: flex;
+    justify-content: left;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.gokarty{
+    width: 250px;
+    height: auto;
+    border: 5px solid green;
+    border-radius: 25%;
+    margin-bottom: 5px;
+    margin-top: -5px;
+}
+
+img{
+    width: 250px;
+    height: auto;
+    border: 5px solid green;
+    border-radius: 25%;
+    margin: 10px;
+}
+
+img:hover{
+    transform: scale(1.5);
+    transform: rotate(180deg);
+    filter: hue-rotate(90deg);
+    transition: 0.5s;
+}
+
+section{
+    float: none;
+    clear: both;
+    text-align: right;
+    padding: 100px;
+}
+
+hr{
+    border: none;
+    clear: both;
 }

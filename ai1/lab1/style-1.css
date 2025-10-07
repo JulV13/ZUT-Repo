@@ -1,31 +1,51 @@
 body {
-    font-family: "Arial", sans-serif;
-    background-color: white;
+    font-family: "Monaco" monospace;
+    background-image: url("images/asfalt.jpg");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    color: white;
 }
 
 header {
-    background-color: black;
-    color: white;
+    border: none;
+    border-radius: 0%;
+    transform: none;
+    float: none;
+    width: auto;
+    background-image: linear-gradient(to bottom, black, grey);
+    color: yellow;
+    text-shadow: none;
     font-size: 4em;
+    font-style: italic;
     margin: 0 auto;
     text-align: center;
+    padding: 15px;
+    margin-bottom: -10px;
 }
 
 h1 {
+    font-size: 1em;
     margin: 0 auto;
     text-align: center;  
-    font-style: normal; 
+    font-style: italic; 
     text-decoration: none;
 }
 
 h2 {
+    color: yellow;
+    font-size: 3.5em;
     margin: 0 auto;
     text-align: center;
     font-style: normal;
     text-decoration: none;
 }
 
+h2:hover{
+    color: yellow;
+}
+
 h3 {
+    font-size: 2em;
     margin: 0 auto;
     text-align: center;
     font-style: normal;
@@ -33,10 +53,22 @@ h3 {
 }
 
 p {
+    font-size: 1.25em;
     margin: 0 auto;
     text-align: center;
     font-style: normal;
     text-decoration: none;
+}
+
+div.lista{
+    text-align: center;
+}
+
+ul {
+    font-size: 1.25em;
+    display: inline-block;
+    text-align: left;
+    list-style-type: square;
 }
 
 footer {
@@ -45,4 +77,79 @@ footer {
     border-radius: 5px;
     margin: 0 auto;
     text-align: center;
+}
+
+a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.nawigacja{
+    border: none;
+    border-radius: 0%;
+    float: none;
+    width: auto;
+    text-shadow: 2px 2px 1px black;
+    background-image: linear-gradient(to top, black, grey);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.nawigacja a{
+    color: white;
+    margin: 0 15px;
+    text-align: center;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.nawigacja a:hover{
+    background-color: none;
+    color: yellow;
+    transition: 0.3s;
+}   
+
+.gallery{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.gokarty{
+    width: 300px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-top: -15px;
+}
+
+img{
+    width: 500px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+section{
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px;
+}
+
+hr{
+    border: 5px solid grey;
 }
