@@ -6,13 +6,12 @@
     font-display: swap;
 }
 
-/* --- GLOBAL FIX --- */
 html, body {
     width: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden; /* ✅ usuwa przerwę po prawej stronie */
+    overflow-x: hidden;
 }
 
 * {
@@ -27,9 +26,12 @@ body {
     color: white;
 }
 
-/* --- HEADER --- */
+section{
+    border: 2px solid red;
+}
+
 header {
-    border: none;
+    border: 2px solid red;
     border-radius: 0%;
     transform: none;
     float: none;
@@ -47,6 +49,7 @@ header {
 }
 
 h1 {
+    border: 2px solid red;
     font-size: 7.5vw;
     margin: 0 auto;
     text-align: center;  
@@ -54,8 +57,8 @@ h1 {
     text-decoration: none;
 }
 
-/* --- TYTUŁY --- */
 h2 {
+    border: 2px solid red;
     color: yellow;
     font-size: 5vw;
     margin: 0 auto;
@@ -69,6 +72,7 @@ h2:hover{
 }
 
 h3 {
+    border: 2px solid red;
     font-size: 2em;
     margin: 0 auto;
     text-align: center;
@@ -77,6 +81,7 @@ h3 {
 }
 
 p {
+    border: 2px solid red;
     font-size: 1.25em;
     margin: 0 auto;
     text-align: center;
@@ -84,12 +89,13 @@ p {
     text-decoration: none;
 }
 
-/* --- LISTY --- */
 div.lista{
+    border: 2px solid red;
     text-align: center;
 }
 
 ul {
+    border: 2px solid red;
     font-size: 1.25em;
     display: inline-block;
     text-align: left;
@@ -100,8 +106,8 @@ li::marker{
     color: yellow;
 }
 
-/* --- STOPKA --- */
 footer {
+    border: 2px solid red;
     background-color: black;
     color: white;
     border-radius: 5px;
@@ -113,15 +119,14 @@ footer {
     padding: 15px;
 }
 
-/* --- LINKI --- */
 a {
+    border: 2px solid red;
     color: yellow;
     text-decoration: none;
 }
 
-/* --- NAWIGACJA --- */
 .nawigacja{
-    border: none;
+    border: 2px solid red;
     border-radius: 0%;
     float: none;
     width: 100%;
@@ -152,8 +157,8 @@ a {
     transition: 0.3s;
 }   
 
-/* --- GALERIA --- */
 .gallery{
+    border: 2px solid red;
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -192,7 +197,6 @@ img:hover{
     filter: none;
 }
 
-/* --- SEKCJE --- */
 section{
     background-image: none;
     margin: 0 auto;
@@ -203,7 +207,6 @@ section{
     box-sizing: border-box;
 }
 
-/* --- LINIA --- */
 hr{
     width: 100%;
     max-width: 100%;
@@ -211,7 +214,6 @@ hr{
     box-sizing: border-box;
 }
 
-/* --- MEDIA QUERY: poprawka dla małych ekranów --- */
 @media (max-width: 400px) {
     section, header, nav, footer {
         width: 100vw;
