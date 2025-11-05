@@ -9,14 +9,21 @@
 </head>
 <body>
     <div id="loc"></div>
-    <div class="grid-container">
-        <div id="map-container">
-            <div id="map"></div>
-            <button id="locateMe">Moja lokalizacja</button>
-        </div>
-        <div id="rastr">rastr</div>
-        <div id="puzle">puzle</div>
-        <div id="ukladanka">ukladanka</div>
+    <div class="kontenerOgolny">
+            <div id="kontenerMapy">
+                <div id="mapa"></div>
+                <button id="zlokalizujMnie">Moja lokalizacja</button>
+            </div>
+            <div id="kontenerRastra">
+                <div id="rastr"></div>
+                <button id="pobierzMape">Pobierz mape</button>
+            </div>
+            <div id="kontenerPuzli">
+                <div id="puzle" class="puzzle-siatka"></div>
+            </div>
+            <div id="kontenerUkladanki">
+                <div id="ukladanka" class="puzzle-siatka"></div>
+            </div>
     </div>
     <footer>Julian Vrtiska &copy; 2025</footer>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

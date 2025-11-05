@@ -14,7 +14,7 @@ body {
     margin-bottom: 20px;
 }
 
-.grid-container {
+.kontenerOgolny {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -24,14 +24,14 @@ body {
     padding: 20px;
 }
 
-#map-container, #rastr, #puzle, #ukladanka {
+#kontenerMapy, #kontenerRastra, #kontenerPuzli, #kontenerUkladanki {
     width: 500px;
     height: 500px;
     min-width: 500px;
     min-height: 500px;
     max-width: 500px;
     max-height: 500px;
-    border: 2px solid rgb(81, 235, 158);
+    border: 4px solid rgb(81, 235, 158);
     border-radius: 5px;
     margin: 10px;
     display: inline-block;
@@ -41,7 +41,56 @@ body {
     position: relative;
 }
 
-#map {
+.puzzle-siatka {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.kawalekUkladanki {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(81, 235, 158);
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: move;
+    position: relative;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kawalekUkladanki.dragging {
+    opacity: 0.5;
+}
+
+.miejsceNaPuzla {
+    width: 100%;
+    height: 100%;
+    border: 1px dashed rgb(81, 235, 158);
+    background-color: rgba(81, 235, 158, 0.1);
+}
+
+#rastr img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.kawalekUkladanki img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#mapa {
     width: 100%;
     height: calc(100% - 50px);
     border: none;
@@ -50,7 +99,7 @@ body {
     border-radius: 5px;
 }
 
-#locateMe {
+#zlokalizujMnie, #pobierzMape {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -65,7 +114,7 @@ body {
     transition: all 0.3s ease;
 }
 
-#locateMe:hover {
+#zlokalizujMnie:hover, #pobierzMape:hover {
     background-color: rgb(61, 215, 138);
     transform: translateX(-50%) scale(1.05);
 }
