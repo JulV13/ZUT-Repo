@@ -4,7 +4,7 @@ let baseLayer;
 let userMarker;
 
 window.onload = function(){
-    requestNotificationPermission();
+    uprawnieniaLokalizacji();
     zainicjalizujMape();
     
     if (navigator.geolocation) {
@@ -22,7 +22,7 @@ window.onload = function(){
         if (window.userPosition) {
             pokazLokalizacje(window.userPosition);
         } else {
-            getLocation();
+            pobierzLokalizacje();
         }
     });
     
@@ -58,8 +58,7 @@ function zapiszMapeDoRastra() {
             try {
                 url = baseLayer.getTileUrl(coords);
             } catch (e) {
-                url = baseLayer._url.replace('{s}', baseLayer.options.subdomains[0])
-                    .replace('{z}', z).replace('{x}', x).replace('{y}', y);
+                url = baseLayer._url.replace('{s}', baseLayer.options.subdomains[0]).replace('{z}', z).replace('{x}', x).replace('{y}', y);
             }
 
             const px = x * tileSize - pixelBounds.min.x;
@@ -91,6 +90,18 @@ function zapiszMapeDoRastra() {
         }
         rastr.innerHTML = '';
         rastr.appendChild(img);
+
+        const ukladanka = document.getElementById('ukladanka');
+        if (ukladanka) {
+            ukladanka.innerHTML = '';
+            for (let i = 0; i < 16; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'miejsceNaPuzla';
+                slot.dataset.position = i;
+                ukladanka.appendChild(slot);
+            }
+        }
+
         wygenerujPuzle(img.src);
     });
 }
@@ -176,9 +187,9 @@ function dragAndDrop() {
 
     if (ukladanka) {
         ukladanka.removeEventListener('dragover', dragOver);
-        ukladanka.removeEventListener('drop', dropPuzzleOnContainer);
+        ukladanka.removeEventListener('drop', upuscPuzelDoKontenera);
         ukladanka.addEventListener('dragover', dragOver);
-        ukladanka.addEventListener('drop', dropPuzzleOnContainer);
+        ukladanka.addEventListener('drop', upuscPuzelDoKontenera);
     }
 }
 
@@ -222,7 +233,7 @@ function dropPuzzle(e) {
     }
 }
 
-function dropPuzzleOnContainer(e) {
+function upuscPuzelDoKontenera(e) {
     e.preventDefault();
     const piecePos = e.dataTransfer.getData('text/plain');
     const piece = document.querySelector(`[data-original-position="${piecePos}"]`);
@@ -249,7 +260,7 @@ function sprawdzUlozeniePuzli() {
 
     if (isComplete) {
         console.log('Ukladanka ulozona poprawnie!');
-        sendNotification('Brawo!', 'Ukladanka ulozona poprawnie!');
+        wyslijPowiadomienie('Brawo!', 'Udalo ci sie poprawnie ulozyc ukladanke!');
     }
 }
 
@@ -270,15 +281,17 @@ function zainicjalizujMape() {
     }).addTo(map);
 }
 
-function getLocation(){
+function pobierzLokalizacje(){
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(pokazLokalizacje, noLocation);
+        navigator.geolocation.getCurrentPosition(pokazLokalizacje, function () {
+            alert("Blad pobrania geolokacji.");
+        });
     } else {
         loc.innerHTML = "Przegladarka nie wspiera geolokacji.";
     }
 }
 
-function requestNotificationPermission() {
+function uprawnieniaLokalizacji() {
     if (!("Notification" in window)) {
         return;
     }
@@ -290,18 +303,17 @@ function requestNotificationPermission() {
     });
 }
 
-function sendNotification(title, message) {
+function wyslijPowiadomienie(title, message) {
     if (Notification.permission === "granted") {
         new Notification(title, {
-            body: message,
-            icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5H4v2h16v-2h-2z'/%3E%3C/svg%3E"
+            body: message
         });
     }
 }
 
 function pokazLokalizacje(position) {
-    loc.innerHTML = "<br>Twoja lokalizacja:<br>" + "Szerokosc geograficzna: " + position.coords.latitude +
-    "<br>Dlugosc geograficzna: " + position.coords.longitude;
+    loc.innerHTML = "<br>Twoja lokalizacja:<br>" + "Szerokosc: " + position.coords.latitude +
+    "<br>Dlugosc: " + position.coords.longitude;
     
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
@@ -312,8 +324,4 @@ function pokazLokalizacje(position) {
     
     userMarker = L.marker([lat, lng]).addTo(map);
     map.setView([lat, lng], 13);
-}
-
-function noLocation() {
-    alert("Brak geolokacji!");
 }
